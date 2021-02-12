@@ -1,0 +1,41 @@
+{
+    "name": "kiwiirc-desktop",
+    "author": {
+        "name": "Kiwi IRC",
+        "email": "desktop@kiwiirc.com",
+        "url": "https://github.com/kiwiirc/kiwiirc-desktop"
+    },
+    "description": "A desktop client based on the Kiwi IRC web client.",
+    "homepage": "https://kiwiirc.com",
+    "version": "0.0.6",
+    "license": "Apache-2.0",
+    "private": true,
+    "main": "src/index.js",
+    "dependencies": {
+        "electron-context-menu": "^2.4.0",
+        "irc-framework": "^4.9.0",
+        "node-notifier": "^5.2.1",
+        "os": "^0.1.1",
+        "striptags": "^3.1.1"
+    },
+    "devDependencies": {
+        "electron": "11.2.2",
+        "electron-builder": "^21.2.0",
+        "eslint": "^7.19.0",
+        "eslint-config-standard": "^16.0.2",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "npm-run-all": "^4.1.5"
+    },
+    "scripts": {
+        "postinstall": "electron-builder install-app-deps && npm-run-all maybe-build",
+        "maybe-build": "[ -d kiwiirc/dist ] || npm-run-all build:kiwi",
+        "maybe-init": "[ -f kiwiirc/package.json ] || git submodule init && git submodule update",
+        "dev": "npm-run-all maybe-build && electron .",
+        "build": "npm-run-all build:*",
+        "build:kiwi": "npm-run-all maybe-init && cd kiwiirc && yarn && yarn build",
+        "build:dist": "electron-builder",
+        "lint": "eslint --ext .js ./src/"
+    }
+}
