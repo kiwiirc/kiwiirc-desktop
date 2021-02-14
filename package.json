@@ -7,7 +7,7 @@
     },
     "description": "A desktop client based on the Kiwi IRC web client.",
     "homepage": "https://kiwiirc.com",
-    "version": "0.0.6",
+    "version": "1.5.1",
     "license": "Apache-2.0",
     "private": true,
     "main": "src/index.js",
@@ -29,12 +29,13 @@
     },
     "scripts": {
         "postinstall": "electron-builder install-app-deps && npm-run-all maybe-build",
-        "maybe-build": "[ -d kiwiirc/dist ] || npm-run-all build:kiwi",
+        "maybe-build": "[ -f kiwiirc/dist/index.html ] || npm-run-all build:kiwi",
         "maybe-init": "[ -f kiwiirc/package.json ] || git submodule init && git submodule update",
         "dev": "npm-run-all maybe-build && electron .",
         "build": "npm-run-all build:*",
         "build:kiwi": "npm-run-all maybe-init && cd kiwiirc && yarn && yarn build",
-        "build:dist": "electron-builder",
-        "lint": "eslint --ext .js ./src/"
+        "build:dist": "npm-run-all update:version && electron-builder",
+        "lint": "eslint --ext .js ./src/",
+        "update:version": "node -pe \"require('./kiwiirc/package.json').version\" | xargs -or yarn version --no-git-tag-version --new-version "
     }
 }
