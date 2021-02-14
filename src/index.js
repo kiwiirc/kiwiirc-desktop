@@ -28,7 +28,7 @@ const createMainWindow = async () => {
         if (request.url.endsWith('/static/config.json')) {
             callback(path.join(__dirname, '../static/config.json'));
         } else {
-            callback(request.url.substr(8));
+            callback(decodeURIComponent(request.url.substr(8)));
         }
     });
 

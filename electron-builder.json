@@ -1,5 +1,5 @@
 {
-    "productName": "KiwiIRC",
+    "productName": "Kiwi IRC",
     "appId": "com.kiwiirc.desktop",
     "directories": {
         "output": "build"
