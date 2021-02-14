@@ -23,24 +23,22 @@
                 "y": 150,
                 "type": "file"
             }
-        ]
+        ],
+        "window": {
+            "x": 400,
+            "y": 100,
+            "width": 540,
+            "height": 380
+        }
     },
     "mac": {
         "icon": "static/icons/kiwiirclogo.icns",
         "target": [
             {
-                "target": "dmg",
-                "arch": [
-                    "x64",
-                    "arm64"
-                ]
+                "target": "dmg"
             },
             {
-                "target": "zip",
-                "arch": [
-                    "x64",
-                    "arm64"
-                ]
+                "target": "zip"
             }
         ]
     },
