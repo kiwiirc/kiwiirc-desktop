@@ -36,6 +36,6 @@
         "build:kiwi": "npm-run-all maybe-init && cd kiwiirc && yarn && yarn build",
         "build:dist": "npm-run-all update:version && electron-builder",
         "lint": "eslint --ext .js ./src/",
-        "update:version": "node -pe \"require('./kiwiirc/package.json').version\" | xargs -or yarn version --no-git-tag-version --new-version "
+        "update:version": "node -pe \"require('./kiwiirc/package.json').version\" | xargs -o yarn version --no-git-tag-version --new-version "
     }
 }
