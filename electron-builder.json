@@ -1,6 +1,7 @@
 {
     "productName": "Kiwi IRC",
     "appId": "com.kiwiirc.desktop",
+    "artifactName": "\${name}-\${version}-\${os}-\${arch}.\${ext}",
     "directories": {
         "output": "build"
     },
