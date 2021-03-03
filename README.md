@@ -15,6 +15,7 @@ These tasks are required first for both development and production builds
 
 ``` bash
 $ git clone https://github.com/kiwiirc/kiwiirc-desktop.git
+$ cd kiwiirc-desktop
 $ yarn
 ```
 
@@ -39,4 +40,28 @@ for more info see [cli commands](https://www.electron.build/cli)
 
 ``` bash
 $ yarn build:dist --dir --x64
+```
+
+<br />
+
+## MacOS Notes <span style="font-size:0.5em;">(can build all kiwiirc desktop packages)</span>
+
+Install Xcode from the app store and the following packages.
+
+### Homebrew see https://brew.sh/
+
+``` bash
+$ brew install nodejs yarn rpm gnu-tar
+```
+
+### MacOS build tips
+
+#### Skip code signing
+``` bash
+yarn build:dist --dir -c.mac.identity=null
+```
+
+#### Building all os types
+``` bash
+yarn build:dist --mac --linux --win
 ```
