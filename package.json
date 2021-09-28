@@ -30,7 +30,7 @@
     "scripts": {
         "postinstall": "electron-builder install-app-deps && npm-run-all maybe-build",
         "maybe-build": "[ -f kiwiirc/dist/index.html ] || npm-run-all build:kiwi",
-        "maybe-init": "[ -f kiwiirc/package.json ] || git submodule init && git submodule update",
+        "maybe-init": "[ -f kiwiirc/package.json ] || git submodule init && git submodule update --remote --merge",
         "dev": "npm-run-all maybe-build && electron .",
         "build": "npm-run-all build:*",
         "build:kiwi": "npm-run-all maybe-init && cd kiwiirc && yarn && yarn build",
