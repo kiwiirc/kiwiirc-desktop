@@ -42,6 +42,7 @@ const createMainWindow = async () => {
             nodeIntegration: false,
             // Required to use preload to pass classes in
             // TODO: find a better/more secure way
+            sandbox: false,
             contextIsolation: false,
             preload: path.join(__dirname, 'preload.js'),
         },
