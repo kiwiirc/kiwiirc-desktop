@@ -1,7 +1,7 @@
 {
     "productName": "Kiwi IRC",
     "appId": "com.kiwiirc.desktop",
-    "artifactName": "\${name}_v\${version}_\${os}_\${arch}.\${ext}",
+    "artifactName": "${name}_v${version}_${os}_${arch}.${ext}",
     "directories": {
         "output": "build"
     },
@@ -36,10 +36,18 @@
         "icon": "static/icons/kiwiirclogo.icns",
         "target": [
             {
-                "target": "dmg"
+                "target": "dmg",
+                "arch": [
+                    "x64",
+                    "arm64"
+                ]
             },
             {
-                "target": "zip"
+                "target": "zip",
+                "arch": [
+                    "x64",
+                    "arm64"
+                ]
             }
         ]
     },
